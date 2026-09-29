@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduGenie — AI Learning Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+    <main class="page">
+        <section class="hero">
+            <div>
+                <span class="eyebrow">AI-powered learning assistant</span>
+                <h1>EduGenie</h1>
+                <p>Ask questions, simplify concepts, summarize notes, generate quizzes, or build a learning path.</p>
+            </div>
+            <div class="hero-badge">FastAPI + Gemini</div>
+        </section>
+
+        <section class="card">
+            <label for="task">Choose a task</label>
+            <select id="task">
+                <option value="qa">Q&amp;A</option>
+                <option value="explain">Explain a concept</option>
+                <option value="quiz">Generate a quiz</option>
+                <option value="summarize">Summarize text</option>
+                <option value="learn">Recommend a learning path</option>
+            </select>
+
+            <label for="inputText">Your topic, question, or passage</label>
+            <textarea id="inputText" rows="9" placeholder="Example: Explain the Pythagoras theorem for a beginner."></textarea>
+
+            <button id="submitBtn">Generate</button>
+            <div id="status" class="status" aria-live="polite"></div>
+        </section>
+
+        <section id="resultCard" class="card result-card hidden">
+            <div class="result-heading">
+                <h2>Result</h2>
+                <button id="copyBtn" class="secondary">Copy</button>
+            </div>
+            <div id="result"></div>
+        </section>
+
+        <p class="footer">EduGenie prototype · Keep your API key in <code>.env</code>, never in the frontend.</p>
+    </main>
+    <script src="{{ url_for('static', path='app.js') }}"></script>
+</body>
+</html>
